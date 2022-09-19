@@ -1,23 +1,10 @@
-import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:3000'
+import api from '@/api'
 
 export default {
-  // Retorna lista de tarefas
-  getTasks: (cb) => {
-    axios
-      .get('/tasks')
-      .then((response) => {
-        cb(response.data)
-      })
-      .catch((error) => {
-        console.log('error:', error)
-      })
-  },
-  // Salva nova tarefa
-  postTask: (task) => {
+  getTasks: () => {
     return new Promise((resolve, reject) => {
-      axios
-        .post('/tasks', task)
+      api
+        .get('/api/tasks')
         .then((response) => {
           return resolve(response.data)
         })
@@ -26,11 +13,10 @@ export default {
         })
     })
   },
-  // Deleta tarefa
-  deleteTasks: (taskId) => {
+  removeTask: (taskId) => {
     return new Promise((resolve, reject) => {
-      axios
-        .delete(`/tasks/${taskId}`)
+      api
+        .delete(`/api/tasks/${taskId}`)
         .then((response) => {
           return resolve(response.data)
         })
@@ -39,11 +25,10 @@ export default {
         })
     })
   },
-  // Editar tarefa
-  editTask: (taskid, task) => {
+  summary: () => {
     return new Promise((resolve, reject) => {
-      axios
-        .put(`/tasks/${taskid}`, task)
+      api
+        .get('/api/tasks/painel')
         .then((response) => {
           return resolve(response.data)
         })

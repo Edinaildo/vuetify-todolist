@@ -16,7 +16,11 @@
                   <v-btn x-small icon color="grey" @click="editarTasks(task)"
                     ><v-icon>fas fa-pen fa-xs</v-icon></v-btn
                   >
-                  <v-btn x-small icon color="grey" @click="deletarTasks(task)"
+                  <v-btn
+                    x-small
+                    icon
+                    color="grey"
+                    @click="removerTasks(task.id)"
                     ><v-icon>far fa-trash-alt fa-xs</v-icon></v-btn
                   >
                 </v-row>
@@ -35,7 +39,7 @@
 </template>
 
 <script>
-import TasksApi from '@/tasksapi'
+import TasksApi from '@/api/tasks.api.js'
 
 export default {
   data: () => {
@@ -44,14 +48,14 @@ export default {
     }
   },
   methods: {
-    listarTarefas() {
-      TasksApi.getTasks((data) => {
+    getTasks() {
+      TasksApi.getTasks().then((data) => {
         this.tasks = data
       })
     },
-    deletarTasks(task) {
-      TasksApi.deleteTasks(task.id).then(() => {
-        this.listarTarefas()
+    removerTask(taskId) {
+      TasksApi.removeTask(taskId).then(() => {
+        this.getTasks()
       })
     },
     editarTasks(task) {
@@ -62,7 +66,7 @@ export default {
     },
   },
   created() {
-    this.listarTarefas()
+    this.getTasks()
   },
 }
 </script>

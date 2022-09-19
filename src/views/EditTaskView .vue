@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import TasksApi from '@/tasksapi.js'
+import TasksApi from '@/api/tasks.api.js'
 
 export default {
   data: () => {

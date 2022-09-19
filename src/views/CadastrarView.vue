@@ -35,11 +35,13 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer
-              ><v-btn color="normal" :to="{ name: 'login' }"
+              ><v-btn large rounded color="normal" :to="{ name: 'login' }"
                 >Voltar</v-btn
               ></v-spacer
             >
-            <v-btn color="primary" :to="{ name: 'login' }">Cadastrar</v-btn>
+            <v-btn large rounded color="primary" :to="{ name: 'login' }"
+              >Cadastrar</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-flex>

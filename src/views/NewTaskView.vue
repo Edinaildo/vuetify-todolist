@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="d-flex justify-center flex-column align-center">
     <v-text-field v-model="newTask.title" label="Title"></v-text-field>
     <v-text-field v-model="newTask.project" label="Project"></v-text-field>
     <v-text-field v-model="newTask.dueTo" label="Dueto"></v-text-field>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TasksApi from '@/tasksapi.js'
+import TasksApi from '@/api/tasks.api.js'
 
 export default {
   data: () => {

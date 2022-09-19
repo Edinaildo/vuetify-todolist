@@ -14,7 +14,7 @@
           <v-btn
             icon
             color="white"
-            href="https://github.com/evandropcs/crud-vuetify"
+            href="https://github.com/edinaildo"
             target="blank"
           >
             <v-icon>fa-brands fa-github</v-icon>

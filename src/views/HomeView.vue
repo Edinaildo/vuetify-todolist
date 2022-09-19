@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          :src="require('../assets/task.svg')"
+          :src="require('../assets/todo.png')"
           class="my-3"
           contain
           height="200"
@@ -17,7 +17,7 @@
           Lista de tarefas usando VueJS + Vuetify + API Mock
         </p>
         <p>
-          <v-btn x-large rounded class="orange" :to="{ name: 'login' }">
+          <v-btn large rounded class="teal lighten-2" :to="{ name: 'login' }">
             Iniciar
           </v-btn>
         </p>

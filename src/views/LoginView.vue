@@ -9,26 +9,34 @@
           <v-card-text>
             <v-form>
               <v-text-field
+                v-model="username"
                 name="usuario"
                 label="Usuario"
                 type="text"
+                required
+                outlined
               ></v-text-field>
               <v-text-field
+                v-model="password"
                 id="senha"
                 name="senha"
                 label="Senha"
                 type="password"
+                required
+                outlined
               ></v-text-field>
               <p><a>Esqueci a minha senha</a></p>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer
-              ><v-btn color="primary" :to="{ name: 'painel' }"
+              ><v-btn large rounded color="primary" @click="login"
                 >Entrar</v-btn
               ></v-spacer
             >
-            <v-btn color="error" :to="{ name: 'cadastrar' }">Cadastrar</v-btn>
+            <v-btn large rounded color="error" :to="{ name: 'cadastrar' }"
+              >Cadastrar</v-btn
+            >
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -37,7 +45,45 @@
 </template>
 
 <script>
-export default {}
+import AuthApi from '@/api/auth.api.js'
+
+export default {
+  data: () => {
+    return {
+      loading: false,
+      valid: false,
+      username: '',
+      password: '',
+      snackbar: {
+        show: false,
+        message: '',
+      },
+    }
+  },
+  methods: {
+    login() {
+      this.loading = true
+      AuthApi.login(this.username, this.password)
+        .then((user) => {
+          console.log('login ok', user)
+          this.saveLoggedUser(user)
+          this.$router.push({ name: 'painel' })
+        })
+        .catch((error) => {
+          console.log('login falhou', error)
+          this.snackbar.message = 'Usuario ou senha invalida'
+          this.snackbar.show = true
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
+    saveLoggedUser(user) {
+      window.localStorage.setItem('loggedUser', user.id)
+      window.localStorage.setItem('loggedUserToken', user.token)
+    },
+  },
+}
 </script>
 
 <style scoped>

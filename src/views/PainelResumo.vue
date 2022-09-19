@@ -7,6 +7,7 @@
       :value="value"
       color="teal"
     >
+      {{ project }}
       {{ value }}
     </v-progress-circular>
 
@@ -73,5 +74,6 @@ export default {
 <style scoped>
 .v-progress-circular {
   margin: 1rem;
+  padding: 80px;
 }
 </style>
