@@ -24,9 +24,8 @@ export default {
   },
   methods: {
     editTask() {
-      TasksApi.editTask(this.$route.params.id, this.newTask).then(() => {
-        this.$router.push({ name: 'taskList' })
-      })
+      TasksApi.editTask(this.$route.params.id, this.newTask)
+      this.$router.push({ name: 'taskList' })
     },
   },
   created() {

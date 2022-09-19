@@ -3,9 +3,7 @@
     <v-text-field v-model="newTask.title" label="Title"></v-text-field>
     <v-text-field v-model="newTask.project" label="Project"></v-text-field>
     <v-text-field v-model="newTask.dueTo" label="Dueto"></v-text-field>
-    <v-btn x-large rounded color="primary" dark @click="createTask">
-      Criar
-    </v-btn>
+    <v-btn x-large rounded color="primary" dark @click="addTask"> Criar </v-btn>
     <!-- <v-btn x-large rounded color="primary" dark :to="{ name: 'taskList' }">
       Listar tarefas
     </v-btn> -->
@@ -26,8 +24,8 @@ export default {
     }
   },
   methods: {
-    createTask() {
-      TasksApi.postTask(this.newTask)
+    addTask() {
+      TasksApi.createTask(this.newTask)
       this.$router.push({ name: 'taskList' })
     },
   },

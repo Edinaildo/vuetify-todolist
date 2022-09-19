@@ -80,7 +80,7 @@ const routes = [
     ],
   },
   {
-    path: '/editTask/:id',
+    path: '/editTask',
     component: PrivateLayout,
     children: [
       {

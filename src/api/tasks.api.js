@@ -37,4 +37,28 @@ export default {
         })
     })
   },
+  editTask: (taskid, task) => {
+    return new Promise((resolve, reject) => {
+      api
+        .post(`/api/tasks/${taskid}`, task)
+        .then((response) => {
+          return resolve(response.data)
+        })
+        .catch((error) => {
+          return reject(error)
+        })
+    })
+  },
+  createTask: (task) => {
+    return new Promise((resolve, reject) => {
+      api
+        .post(`/api/tasks`, task)
+        .then((response) => {
+          return resolve(response.data)
+        })
+        .catch((error) => {
+          return reject(error)
+        })
+    })
+  },
 }

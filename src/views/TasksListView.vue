@@ -13,7 +13,11 @@
             <v-card-actions>
               <v-list-item class="grow">
                 <v-row align="center" justify="end">
-                  <v-btn x-small icon color="grey" @click="editarTasks(task)"
+                  <v-btn
+                    x-small
+                    icon
+                    color="grey"
+                    :to="{ name: 'editTask', params: { id: task.id } }"
                     ><v-icon>fas fa-pen fa-xs</v-icon></v-btn
                   >
                   <v-btn x-small icon color="grey" @click="removerTask(task.id)"
@@ -54,13 +58,8 @@ export default {
         this.getTasks()
       })
     },
-    editarTasks(task) {
-      this.$router.push({
-        name: 'editTask',
-        params: { id: task.id, task: task },
-      })
-    },
   },
+
   created() {
     this.getTasks()
   },

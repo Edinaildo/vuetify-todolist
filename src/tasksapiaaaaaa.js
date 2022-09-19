@@ -43,7 +43,7 @@ export default {
   editTask: (taskid, task) => {
     return new Promise((resolve, reject) => {
       axios
-        .put(`/tasks/${taskid}`, task)
+        .post(`/tasks/${taskid}`, task)
         .then((response) => {
           return resolve(response.data)
         })
