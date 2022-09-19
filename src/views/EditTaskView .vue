@@ -30,7 +30,7 @@ export default {
     },
   },
   created() {
-    this.newTask = this.$route.params.task || ''
+    this.taskId = this.$route.params.id || 0
   },
 }
 </script>

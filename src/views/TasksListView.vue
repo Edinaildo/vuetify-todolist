@@ -16,11 +16,7 @@
                   <v-btn x-small icon color="grey" @click="editarTasks(task)"
                     ><v-icon>fas fa-pen fa-xs</v-icon></v-btn
                   >
-                  <v-btn
-                    x-small
-                    icon
-                    color="grey"
-                    @click="removerTasks(task.id)"
+                  <v-btn x-small icon color="grey" @click="removerTask(task.id)"
                     ><v-icon>far fa-trash-alt fa-xs</v-icon></v-btn
                   >
                 </v-row>
